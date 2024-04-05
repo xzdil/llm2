@@ -1,6 +1,7 @@
 from llama_index.core import set_global_tokenizer
 from transformers import AutoTokenizer
 from model import llm
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
 
 set_global_tokenizer(
     AutoTokenizer.from_pretrained("NousResearch/Llama-2-7b-chat-hf").encode
