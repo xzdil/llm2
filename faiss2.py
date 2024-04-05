@@ -1,4 +1,3 @@
-import faiss
 from llama_index.core import (
     SimpleDirectoryReader,
     load_index_from_storage,
@@ -8,12 +7,9 @@ from llama_index.core import (
 from llama_index.vector_stores.faiss import FaissVectorStore
 from model import llm
 
-d = 1536
-faiss_index = faiss.IndexFlatL2(d)
-
 documents = SimpleDirectoryReader("docs").load_data()
 
-vector_store = FaissVectorStore(faiss_index=faiss_index)
+vector_store = FaissVectorStore()
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 index = VectorStoreIndex.from_documents(
     documents, storage_context=storage_context
