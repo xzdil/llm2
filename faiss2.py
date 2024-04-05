@@ -6,6 +6,7 @@ from llama_index.core import (
     StorageContext,
 )
 from llama_index.vector_stores.faiss import FaissVectorStore
+from model import llm
 
 d = 1536
 faiss_index = faiss.IndexFlatL2(d)
@@ -21,4 +22,4 @@ index = VectorStoreIndex.from_documents(
 # save index to disk
 index.storage_context.persist()
 
-query_engine = index.as_query_engine()
+query_engine = index.as_query_engine(llm=llm,streaming=True)
