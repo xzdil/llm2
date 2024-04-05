@@ -11,7 +11,7 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 from llama_index.core import SimpleDirectoryReader
-documents = SimpleDirectoryReader('/content/docs').load_data()
+documents = SimpleDirectoryReader('docs').load_data()
 
 index = VectorStoreIndex.from_documents(documents, embed_model=embed_model)
 
