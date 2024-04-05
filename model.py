@@ -9,9 +9,9 @@ model_url = 'https://huggingface.co/TheBloke/saiga_mistral_7b-GGUF/resolve/main/
 
 llm = LlamaCPP(
     # You can pass in the URL to a GGML model to download it automatically
-    model_url=None,
+    model_url=model_url,
     # optionally, you can set the path to a pre-downloaded model instead of model_url
-    model_path='/content/saiga_mistral_7b.Q5_K_S.gguf',
+    model_path=None,
     max_new_tokens=4000,
     context_window=20000,
     generate_kwargs={},
